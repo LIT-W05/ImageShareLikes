@@ -1,0 +1,24 @@
+﻿@model ImageLikesLinqToSql.Web.Models.ViewImageViewModel
+
+<div class="row">
+    <input type="hidden" id="image-id" value="@Model.Image.Id" />
+    <div class="col-md-10 col-md-offset-1 well">
+        <h1>@Model.Image.Title</h1>
+        <img src="/UploadedImages/@Model.Image.FileName" style="width: 1000px;" />
+        <br />
+        <br />
+        @if (Model.CanLikeImage)
+        {
+            <button id="like-button" class="btn btn-primary btn-lg">LIKE</button>
+        }
+        else
+        {
+            <button class="btn btn-primary btn-lg" disabled>LIKE</button>
+        }
+        Current Likes: <span id="likes-count"></span>
+    </div>
+</div>
+
+@section scripts {
+    <script src="/Scripts/view-image.js"></script>
+}
